@@ -3,14 +3,20 @@ function memo() {
   submit.addEventListener("click", (e) => {
     const formData = new FormData(document.getElementById("form"));
     const XHR = new XMLHttpRequest();
+    // 初期化（HTTPメソッド、パス、？）
     XHR.open("POST", "/posts", true);
+    // レスポンスの形式
     XHR.responseType = "json";
+    // リクエスト送信！
     XHR.send(formData);
+    // レスポンス！！
     XHR.onload = () => {
+      // HTTPステータスチェック
       if (XHR.status !== 200) {
         alert(`Error ${XHR.status}: ${XHR.statusText}`);
         return null;
       }
+      // レスポンスのjsonデータを代入
       const item = XHR.response.post;
       const list = document.getElementById("list");
       const formText = document.getElementById("content");
