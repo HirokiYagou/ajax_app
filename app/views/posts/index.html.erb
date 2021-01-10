@@ -4,7 +4,11 @@
   <%= form.submit '投稿する', id: "submit" %>
 <% end %>
 
-<div id="list"></div>
+<div id="app">
+  <div v-for="post in posts" :key="post.id" class="post" data-id="post.id" data-check="post.checked">
+    {{ post.body }}
+  </div>
+</div>
 
 <% @posts.each do |post| %>
  <div class="post" data-id=<%= post.id %> data-check=<%= post.checked %>>
