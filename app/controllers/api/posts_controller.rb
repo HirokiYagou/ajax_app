@@ -1,7 +1,8 @@
-class PostsController < ApplicationController
+class Api::PostsController < ApplicationController
 
   def index
     @posts = Post.all.order(id: "DESC")
+    render json: {posts: @posts}
   end
   
   # def new
