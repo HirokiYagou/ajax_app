@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   # get 'posts/new', to: 'posts#new'
   post 'posts', to: 'posts#create'
   get 'posts/:id', to: 'posts#checked'
+  post '/callback', to: 'linebot#callback'
 end
