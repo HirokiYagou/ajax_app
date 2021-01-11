@@ -19,14 +19,16 @@ class LinebotController < ApplicationController
     end
 
     events = client.parse_events_from(body)
+    # binding.pry
     events.each do |event|
       case event
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
+          Post.create(content: event.message['text'], checked: false)
           message = {
             type: 'text',
-            text: 'たまプラーザ'
+            text: "投稿完了\n message:#{event.message['text']}"
           }
           client.reply_message(event['replyToken'], message)
         when Line::Bot::Event::MessageType::Image, Line::Bot::Event::MessageType::Video
