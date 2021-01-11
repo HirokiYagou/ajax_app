@@ -1,24 +1,24 @@
-// function posts() {
-//   Vue.createApp({
-//     data: function() {
-//       return {
-//         posts: [],
-//       }
-//     },
-//     methods: {
-//       fetchPost: function() {
-//         const self = this
-//         axios
-//           .get("https://jsonplaceholder.typicode.com/posts")
-//           .then(function(response) {
-//             self.posts = response.data
-//           })
-//       },
-//     },
-//     mounted: function() {
-//       this.fetchPost()
-//     },
-//   }).mount('#app')
-// }
+function items() {
+  Vue.createApp({
+    data: function() {
+      return {
+        items: [],
+      }
+    },
+    methods: {
+      fetchItem: function() {
+        const self = this
+        axios
+          .get("https://api-tokyochallenge.odpt.org/api/v4/odpt:Train?odpt:operator=odpt.Operator:TokyoMetro&acl:consumerKey=AB4yn4tFjuCH9wx7GjowpNCK0ca_IoJPG7KusjBzdmQ")
+          .then(function(response) {
+            self.items = response.data
+          })
+        },
+    },
+    mounted: function() {
+      this.fetchItem()
+    },
+  }).mount('#app')
+}
 
-// document.addEventListener('DOMContentLoaded', posts)
+document.addEventListener('DOMContentLoaded', items)
