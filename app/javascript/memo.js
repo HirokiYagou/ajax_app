@@ -41,22 +41,33 @@ function memo() {
   Vue.createApp({
     data: function() {
       return {
-        post: '',
+        posts: [],
+        content: '',
       }
     },
     methods: {
-      fetchPost: function() {
-        const formData = new FormData(document.getElementById("form"));
+      createPost: function() {
+        const formData = new FormData(document.getElementById("form"))
         axios
-          .post('/posts', formData)
+          .post('/posts', {formData})
           .then(function(response) {
             console.log(response)
           })
           .catch(function(error) {
-            console.log(error)
+            console.log(error.response.data.message)
           })
-
-      }
+      },
+      fetchPost: function() {
+        const self = this
+        axios
+          .get("/")
+          .then(function(response) {
+            self.posts = response.data
+          })
+      },
+    },
+    mounted: function() {
+      this.fetchPost()
     },
   }).mount('#app')
 }

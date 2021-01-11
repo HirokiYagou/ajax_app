@@ -1,13 +1,17 @@
 <h1>AjaxApp</h1>
-<%= form_with url: "/posts", method: :post, id: "form" do |form| %>
-  <%= form.text_field :content ,id: "content" %>
-  <%= form.submit '投稿する', id: "submit" %>
-<% end %>
-
 <div id="app">
-  <div v-for="post in posts" :key="post.id" class="post" :data-id="post.id" data-check="post.checked">
+  <%= form_with url: "/posts", method: :post, id: "form" do |form| %>
+    <%= form.text_field :content ,id: "content" %>
+    <%= form.submit '投稿する', id: "submit"%>
+  <% end %>
+
+  <form>
+    <input type="text" v-model="content">
+    <button type="button" @click="createPost">投稿する</button>
+  </form>
+  <%# <div v-for="post in posts" :key="post.id" class="post" :data-id="post.id" data-check="post.checked">
     {{ post.title }}
-  </div>
+  </div> %>
 </div>
 
 <div id="list">
