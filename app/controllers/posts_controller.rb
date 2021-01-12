@@ -1,8 +1,11 @@
-class Api::PostsController < ApplicationController
+class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order(id: "DESC")
-    render json: {posts: @posts}
+    respond_to :html, json: {posts: @posts}
+    # do |format|
+    #   format.html
+    # end
   end
   
   # def new

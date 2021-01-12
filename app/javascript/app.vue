@@ -18,18 +18,25 @@
 
 <script>
 import axios from 'axios'
+import qs from 'qs';
 
 export default {
   data() {
     return {
       message: "Hello Vue!",
       posts: [],
+      postsCount: 0,
     }
   },
-  mounted() {
-    axios
-      .get('http://localhost:3000/api/posts.json')
-      .then(response => (self.posts = response.data))
+  methods: {
+    fetchItem: function() {
+      let params = { ...this.query, offset: this.offset };
+      let path = '/posts.json?' + qs.stringify(params);
+      axios.get(path).then((res) => {
+        this.posts = this.posts.concat(res.data.posts);
+        // this.postsCount = res.data.posts_count;
+      });
+    },
   },
   mounted: function() {
     this.fetchItem()
