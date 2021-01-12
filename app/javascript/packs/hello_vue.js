@@ -1,7 +1,7 @@
 import { createApp } from "vue";
-import App from "../app.vue";
+import Posts from "../posts.vue";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const app = createApp(App);
-  app.mount('#app')
+  const app = createApp(Posts);
+  app.mount('#app');
 });
