@@ -16,29 +16,32 @@ import axios from 'axios'
 export default {
   data() {
     return {
-      posts: {},
+      posts: [],
     }
   },
   methods: {
+    fetchPosts: function() {
+      axios
+        .get('/posts.json')
+        .then(response => {
+          this.posts = response.data
+        })
+        .catch(error => console.log(error))
+    },
     checked: function() {
       const postId = post.id
       axios
         .get(`posts/${postId}`)
-        .then(function(response) {
+        .then(response => {
           console.log(response)
         })
     },
   },
-  created() {
-    this.posts = sharedData.posts
-  },
-  mounted() {
-    axios
-      .get('/')
-      .then(function(response) {
-        // this.posts = response.data
-        console.log(response)
-      })
+  // created() {
+  //   this.posts = sharedData.posts
+  // },
+  mounted: function() {
+    this.fetchPosts()
   },
 }
 </script>

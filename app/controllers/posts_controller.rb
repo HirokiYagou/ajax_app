@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.order(id: "DESC")
-    shared_data[:posts] = @posts
+    posts = Post.all.order(id: "DESC")
+    shared_data[:posts] = posts
+    respond_to do |format|
+      format.html
+      format.json { render json: posts }
+    end
   end
 
   def create
@@ -17,7 +21,7 @@ class PostsController < ApplicationController
     end
 
     item = Post.find(params[:id])
-    render json: { post: item}
+    render json: { post: item }
   end
   
 end
