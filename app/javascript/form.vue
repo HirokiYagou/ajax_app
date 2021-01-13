@@ -15,16 +15,21 @@
       </div>
     </div>
   </div>
+
+  <posts :post="post"></posts>
 </div>
 </template>
 
 <script>
 import axios from 'axios'
+import Posts from './posts.vue'
 export default {
+  components: { 'posts':Posts },
   data() {
     return {
       message: '',
       isVisible: false,
+      post: {},
     }
   },
   computed: {
@@ -42,8 +47,7 @@ export default {
           content: this.message
         })
         .then(response => {
-          console.log(response.data)
-          this.posts.unshift(response.data)
+          this.post = response.data
         })
         .catch(error => console.log(error))
     },

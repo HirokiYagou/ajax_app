@@ -13,10 +13,34 @@
 import axios from 'axios'
 
 export default {
+  props: {
+    post: {
+      type: Object,
+      default: function() {
+        return {
+          id: undefined,
+          content: '',
+          checked: undefined,
+          created_at: '',
+          updated_at: '',
+        }
+      },
+      required: false,
+    },
+  },
   data() {
     return {
       posts: [],
     }
+  },
+  watch: {
+    post: {
+      hundler: function(prev, next) {
+        console.log(prev)
+        console.log(next)
+      },
+      deep: true,
+    },
   },
   methods: {
     fetchPosts: function() {
