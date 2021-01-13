@@ -1,24 +1,12 @@
-# README
+# アプリの概要
+単一テーブルのRails基本アプリに下記追加実装
+* LINE MESSAGING API
+* Vue.js
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 特徴
+* LINE MESSAGING APIを導入し、LINE（スマホ）から投稿できる機能を実装
+* Vue.jsを用いてUIをコンポーネント化(HTML,CSS,JavaScriptを単一ファイル化)
+  * posts#indexアクションのレスポンスは単一コントローラーによる①HTML②jsonの二段階実装
+  * 入力フォームをモーダル化（Twitterぽく）
+* 全てのAjax通信をVue.jsにより実装
+  * CSRF対策実装
