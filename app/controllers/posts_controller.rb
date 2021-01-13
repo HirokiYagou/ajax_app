@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   def index
     posts = Post.all.order(id: "DESC")
-    shared_data[:posts] = posts
     respond_to do |format|
       format.html
       format.json { render json: posts }

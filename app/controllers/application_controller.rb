@@ -1,12 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth
-
-  def shared_data
-    @shared_data ||= {}
-  end
-  helper_method :shared_data
-
-
+  
   private
   
   def basic_auth
