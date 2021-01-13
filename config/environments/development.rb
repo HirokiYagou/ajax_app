@@ -61,4 +61,6 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.devtools = true
+  
+  config.hosts << ".ngrok.io"
 end
