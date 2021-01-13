@@ -1,13 +1,13 @@
 <template>
 <div>
-  <button @click="openForm" type="button" id="submit">投稿する</button>
+  <button @click="openForm" type="button" id="submit" class="button">投稿する</button>
 
   <div class="modal-container" v-show="isVisible">
     <div class="modal-overlay" @click.self="closeForm">
       <div class="modal-body">
-        <form @submit="submit" class="modal-imgae-container" :class="{'isLoaded': isThumbnailLoaded}">
-          <input type="text" placeholder="" v-model="message" required>
-          <button type="submit" @submit="submit">投稿する</button>
+        <form @submit="submit" class="modal-form-container">
+          <input type="textarea" placeholder="いまどうしてる？" v-model="message" class="textarea" required>
+          <button type="submit" @submit.prevent="submit" :class="[empty, 'button']">投稿する</button>
         </form>
         <p>
           <button class="button button--close" @click="closeForm">CLOSE</button>
@@ -24,8 +24,15 @@ export default {
   data() {
     return {
       message: '',
-      // posts: [],
-      isVisible: false
+      isVisible: false,
+    }
+  },
+  computed: {
+    empty: function() {
+      if (this.message) {
+        return 'filled'
+      }
+      return 'empty'
     }
   },
   methods: {
@@ -37,7 +44,6 @@ export default {
         .then(response => this.posts.unshift(response.data))
         .catch(error => console.log(error))
     },
-    
     openForm: function() {
       this.isVisible = true
     },
@@ -45,10 +51,6 @@ export default {
       this.isVisible = false
     },
   },
-  // created() {
-  //   this.posts = sharedData.posts
-  //   console.log(this.posts)
-  // }
 }
 </script>
 
@@ -66,6 +68,7 @@ export default {
   box-sizing: border-box;
   width: 100%;
   max-width: 640px;
+  height: 300px;
   padding: 16px;
   margin: auto;
   background-color: #fff;
@@ -81,5 +84,41 @@ export default {
   height: 100%;
   padding: 20px 60px;
   background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-form-container {
+  width: 100%;
+}
+
+.textarea {
+  display: block;
+  width: 90%;
+  height: 50px;
+  border: none;
+  padding: 3px;
+  font-size: 18px;
+}
+
+.button {
+  padding: 8px 16px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border: none;
+  background-color: lightgray;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+form> button {
+  display: block;
+  margin-top: 10px;
+}
+
+.empty {
+  opacity: 0.5;
 }
 </style>
