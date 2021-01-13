@@ -1,18 +1,17 @@
 <template>
-<div>
-  <div v-for="post in posts" :key="post.id" @click="checked(post)" :data-id="post.id" :data-check="post.checked" class="post">
-    <div class="post-date">
-      投稿日時：{{ post.created_at }}
-    </div>
-    <div class="post-content">
-      {{ post.content }}
-    </div>
+<div v-for="post in posts" :key="post.id" @click="checked(post)" :data-id="post.id" :data-check="post.checked" class="post">
+  <div class="post-date">
+    投稿日時：{{ post.created_at }}
+  </div>
+  <div class="post-content">
+    {{ post.content }}
   </div>
 </div>
 </template>
 
 <script>
 import axios from 'axios'
+
 export default {
   data() {
     return {

@@ -5,9 +5,9 @@
   <div class="modal-container" v-show="isVisible">
     <div class="modal-overlay" @click.self="closeForm">
       <div class="modal-body">
-        <form @submit="submit" class="modal-form-container">
+        <form @submit.prevent="submit" class="modal-form-container">
           <input type="textarea" placeholder="いまどうしてる？" v-model="message" class="textarea" required>
-          <button type="submit" @submit.prevent="submit" :class="[empty, 'button']">投稿する</button>
+          <button type="submit" :class="[empty, 'button']">投稿する</button>
         </form>
         <p>
           <button class="button button--close" @click="closeForm">CLOSE</button>
@@ -41,7 +41,10 @@ export default {
         .post('/posts', {
           content: this.message
         })
-        .then(response => this.posts.unshift(response.data))
+        .then(response => {
+          console.log(response.data)
+          this.posts.unshift(response.data)
+        })
         .catch(error => console.log(error))
     },
     openForm: function() {
