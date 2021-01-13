@@ -1,35 +1,42 @@
 <template>
 <div>
-  <p>{{ message }}</p>
   <button @click="openForm" type="button" id="submit">投稿する</button>
 
-  <!-- <transition tag="div" name="modal" @after-leave="afterLeave"> -->
-    <div class="modal-container" v-show="isVisible">
-      <div class="modal-overlay" @click.self="closeForm">
-        <div class="modal-body">
-          <form @submit="submit" class="modal-imgae-container" :class="{'isLoaded': isThumbnailLoaded}">
-            <input type="text" placeholder="" v-model="message">
-            <button type="submit" @submit="submit">投稿する</button>
-          </form>
-          <p>
-            <button class="button button--close" @click="closeForm">CLOSE</button>
-          </p>
-        </div>
+  <div class="modal-container" v-show="isVisible">
+    <div class="modal-overlay" @click.self="closeForm">
+      <div class="modal-body">
+        <form @submit="submit" class="modal-imgae-container" :class="{'isLoaded': isThumbnailLoaded}">
+          <input type="text" placeholder="" v-model="message" required>
+          <button type="submit" @submit="submit">投稿する</button>
+        </form>
+        <p>
+          <button class="button button--close" @click="closeForm">CLOSE</button>
+        </p>
       </div>
     </div>
-  <!-- </transition> -->
+  </div>
 </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data() {
     return {
       message: '',
+      posts: [],
       isVisible: false
     }
   },
   methods: {
+    submit: function() {
+      axios
+        .post('/posts', {
+          content: this.message
+        })
+        .then(response => this.posts.unshift(response.data))
+        .catch(error => console.log(error))
+    },
     openForm: function() {
       this.isVisible = true
     },
@@ -37,6 +44,9 @@ export default {
       this.isVisible = false
     },
   },
+  created() {
+    this.posts = sharedData.posts
+  }
 }
 </script>
 

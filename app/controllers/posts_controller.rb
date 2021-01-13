@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   def index
     @posts = Post.all.order(id: "DESC")
     shared_data[:posts] = @posts
