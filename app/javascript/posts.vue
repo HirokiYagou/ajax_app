@@ -20,6 +20,7 @@ export default {
   },
   created() {
     this.posts = sharedData.posts
+    console.log(this.posts)
   }
 }
 </script>

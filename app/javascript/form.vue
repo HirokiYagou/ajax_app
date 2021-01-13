@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       message: '',
-      posts: [],
+      // posts: [],
       isVisible: false
     }
   },
@@ -37,6 +37,7 @@ export default {
         .then(response => this.posts.unshift(response.data))
         .catch(error => console.log(error))
     },
+    
     openForm: function() {
       this.isVisible = true
     },
@@ -44,9 +45,10 @@ export default {
       this.isVisible = false
     },
   },
-  created() {
-    this.posts = sharedData.posts
-  }
+  // created() {
+  //   this.posts = sharedData.posts
+  //   console.log(this.posts)
+  // }
 }
 </script>
 
