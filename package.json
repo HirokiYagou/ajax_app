@@ -13,8 +13,8 @@
   "version": "0.1.0",
   "devDependencies": {
     "@vue/compiler-sfc": "^3.0.5",
-    "vue": "^2.6.12",
-    "vue-loader": "^15.9.6",
+    "vue": "^3.0.5",
+    "vue-loader": "^16.1.2",
     "vue-template-compiler": "^2.6.12",
     "webpack-dev-server": "^3.11.0"
   }
