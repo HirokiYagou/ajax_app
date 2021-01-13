@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## アプリの概要
+* 基本的なJavaScriptによるAjax通信を実装
+* その後LINE MESSAGING APIを導入し、LINE（スマホ）から投稿できる機能を実装
+* Vue.jsを用いてUIをコンポーネント化
+  * HTML,CSS,JavaScriptを単一ファイル化
+  * Ajax通信をVue.jsにより実装
