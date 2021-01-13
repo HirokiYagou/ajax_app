@@ -12,9 +12,6 @@
 </template>
 
 <script>
-import axios from 'axios'
-import qs from 'qs';
-
 export default {
   data() {
     return {
@@ -23,17 +20,9 @@ export default {
   },
   created() {
     this.posts = sharedData.posts
-  },
-  mounted: function() {
-    this.fetchItem()
   }
 }
 </script>
 
 <style scoped>
-p {
-  background-color: azure;
-  font-size: 2em;
-  text-align: left;
-}
 </style>
