@@ -14,7 +14,7 @@ import axios from 'axios'
 
 export default {
   props: {
-    post: {
+    new_post: {
       type: Object,
       default: function() {
         return {
@@ -34,12 +34,10 @@ export default {
     }
   },
   watch: {
-    post: {
-      hundler: function(prev, next) {
-        console.log(prev)
-        console.log(next)
+    new_post: {
+      handler: function(next) {
+        this.post = this.posts.unshift(next)
       },
-      deep: true,
     },
   },
   methods: {
@@ -66,4 +64,5 @@ export default {
 </script>
 
 <style scoped>
+
 </style>

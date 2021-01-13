@@ -16,7 +16,7 @@
     </div>
   </div>
 
-  <posts :post="post"></posts>
+  <posts :new_post="post"></posts>
 </div>
 </template>
 
@@ -48,6 +48,8 @@ export default {
         })
         .then(response => {
           this.post = response.data
+          this.message = ''
+          this.closeForm()
         })
         .catch(error => console.log(error))
     },
