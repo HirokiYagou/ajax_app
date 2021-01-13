@@ -64,5 +64,17 @@ export default {
 </script>
 
 <style scoped>
+.post {
+  border: 1px solid;
+  width: 40%;
+  margin-top: 30px;
+}
 
+.post-date {
+  color: gray;
+}
+
+div[data-check="true"] {
+  background-color: #585555;
+}
 </style>
