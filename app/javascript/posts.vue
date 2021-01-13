@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div v-for="post in posts" :key="post.id" @click="checked" :data-id="post.id" :data-check="post.checked" class="post">
+  <div v-for="post in posts" :key="post.id" @click="checked(post)" :data-id="post.id" :data-check="post.checked" class="post">
     <div class="post-date">
       投稿日時：{{ post.created_at }}
     </div>
@@ -28,18 +28,14 @@ export default {
         })
         .catch(error => console.log(error))
     },
-    checked: function() {
-      const postId = post.id
+    checked: function(post) {
       axios
-        .get(`posts/${postId}`)
+        .get(`posts/${post.id}`)
         .then(response => {
-          console.log(response)
+          post.checked = response.data.post.checked
         })
     },
   },
-  // created() {
-  //   this.posts = sharedData.posts
-  // },
   mounted: function() {
     this.fetchPosts()
   },
