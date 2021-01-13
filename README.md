@@ -8,5 +8,5 @@
 * Vue.jsを用いてUIをコンポーネント化(HTML,CSS,JavaScriptを単一ファイル化)
   * posts#indexアクションのレスポンスは単一コントローラーによる①HTML②jsonの二段階実装
   * 入力フォームをモーダル化（Twitterぽく）
-  * CSRF対策実装
 * 全てのAjax通信をVue.jsにより実装
+  * CSRF対策実装
