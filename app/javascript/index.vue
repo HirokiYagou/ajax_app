@@ -23,6 +23,7 @@
 <script>
 import axios from 'axios'
 import Posts from './posts.vue'
+
 export default {
   components: { 'posts':Posts },
   data() {
