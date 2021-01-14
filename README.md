@@ -5,7 +5,9 @@
 * このアプリはデプロイできていません
   * webpackの環境設定ができずデプロイに至らなかった
   * ローカル環境では正常な動作確認
-  * 同じ挙動のアプリでVueをCDN経由で利用しているものがこちら（https://github.com/HirokiYagou/vue_lineapp）
+  * 同じ挙動のアプリでVueをCDN経由で利用しているものがこちら
+    * Github https://github.com/HirokiYagou/vue_lineapp
+    * デプロイ　https://vue-lineapp2.herokuapp.com/
 
 # 特徴
 * LINE MESSAGING APIを導入し、LINE（スマホ）から投稿できる機能を実装
