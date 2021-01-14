@@ -8,6 +8,7 @@
   * 同じ挙動のアプリでVueをCDN経由で実装しているものがこちら
     * Github https://github.com/HirokiYagou/vue_lineapp
     * デプロイ　https://vue-lineapp2.herokuapp.com/
+    * こちらはAjaxはfetchメソッドによる
 
 # 特徴
 * LINE MESSAGING APIを導入し、LINE（スマホ）から投稿できる機能を実装
