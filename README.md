@@ -1,11 +1,11 @@
 # アプリの概要
 * 単一テーブルのRails基本アプリに下記追加実装
   * LINE MESSAGING API
-  * Vue.js
+  * Vue.jsをCLI経由で実装（コンポーネント化の実現）
 * このアプリはデプロイできていません
   * webpackの環境設定ができずデプロイに至らなかった
   * ローカル環境では正常な動作確認
-  * 同じ挙動のアプリでVueをCDN経由で利用しているものがこちら
+  * 同じ挙動のアプリでVueをCDN経由で実装しているものがこちら
     * Github https://github.com/HirokiYagou/vue_lineapp
     * デプロイ　https://vue-lineapp2.herokuapp.com/
 
