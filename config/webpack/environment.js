@@ -1,11 +1,9 @@
 const { environment } = require('@rails/webpacker')
 const { DefinePlugin } = require('webpack')
 const { VueLoaderPlugin } = require('vue-loader')
+const vue = require('./loaders/vue')
 
-environment.plugins.prepend(
-  'VueLoaderPlugin',
-  new VueLoaderPlugin()
-)
+environment.plugins.prepend('VueLoaderPlugin', new VueLoaderPlugin())
 
 environment.plugins.prepend(
   'Define',
@@ -15,11 +13,8 @@ environment.plugins.prepend(
   })
 )
 
-environment.loaders.prepend('vue', {
-  test: /\.vue$/,
-  use: [{
-      loader: 'vue-loader'
-  }]
-})
+environment.loaders.prepend('vue', vue)
+
+environment.config.resolve.alias = { 'vue$': 'vue/dist/vue.esm.js' }
 
 module.exports = environment
