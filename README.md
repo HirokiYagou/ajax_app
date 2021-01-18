@@ -1,7 +1,7 @@
 # アプリの概要
 * 単一テーブルのRails基本アプリに下記追加実装
   * LINE MESSAGING API
-  * Vue.jsをNPMからインストール（コンポーネント化の実現）
+  * Vue.jsによるコンポーネント化(NPMでインストール)
   
 # デプロイ
 https://vue-lineapp.herokuapp.com/
@@ -10,7 +10,7 @@ Ajaxはaxiosによる
 * 同じ挙動のアプリでVueをCDN経由で実装しているものがこちら
   * Github https://github.com/HirokiYagou/vue_lineapp
   * デプロイ　https://vue-lineapp2.herokuapp.com/
-  * こちらはAjaxはfetchメソッドによる
+  * こちらはAjaxはfetchAPIによる
 
 # 特徴
 * LINE MESSAGING APIを導入し、LINE（スマホ）から投稿できる機能を実装
