@@ -7744,7 +7744,7 @@
   "resolved" "https://registry.npmjs.org/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz"
   "version" "1.9.1"
 
-"vue@^3.0.5", "vue@3.0.5":
+"vue@3.0.5":
   "integrity" "sha512-TfaprOmtsAfhQau7WsomXZ8d9op/dkQLNIq8qPV3A0Vxs6GR5E+c1rfJS1SDkXRQj+dFyfnec7+U0Be1huiScg=="
   "resolved" "https://registry.yarnpkg.com/vue/-/vue-3.0.5.tgz"
   "version" "3.0.5"
