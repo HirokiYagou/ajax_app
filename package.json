@@ -10,11 +10,11 @@
     "qs": "^6.7.0",
     "turbolinks": "^5.2.0",
     "vue": "^3.0.5",
+    "@vue/compiler-sfc": "^3.0.5",
     "vue-loader": "^16.1.2"
   },
   "version": "0.1.0",
   "devDependencies": {
-    "@vue/compiler-sfc": "^3.0.5",
     "vue-template-compiler": "^2.6.12",
     "webpack-dev-server": "^3.11.0"
   }
