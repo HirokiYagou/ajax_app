@@ -19,3 +19,5 @@ Ajaxはaxiosによる
   * 入力フォームをモーダル化（Twitterぽく）
 * 全てのAjax通信をVue.jsにより実装(axios)
   * CSRF対策実装
+* Vue.jsの学習
+  * 今後の応用の試金石として
