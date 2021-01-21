@@ -7,7 +7,7 @@
       <div class="modal-body">
         <form @submit.prevent="submit" class="modal-form-container">
           <input type="textarea" placeholder="いまどうしてる？" v-model="message" class="textarea" required>
-          <input type="file" name="post[image]" @change="selectImage" id="post-image" class="button">
+          <input type="file" name="post[image]" @change="selectImage" id="post-image">
           <button type="submit" :class="[empty, 'button']">投稿する</button>
         </form>
         <p>
@@ -67,8 +67,6 @@ export default {
         .then(data => {
           // console.log(data)
           this.post = data
-          this.message = ''
-          this.uploadImage = null
           this.closeForm()
         })
         .catch(error => console.log(error))
@@ -78,6 +76,8 @@ export default {
     },
     closeForm: function() {
       this.isVisible = false
+      this.message = ''
+      this.uploadImage = null
     },
   },
 }
@@ -121,8 +121,9 @@ export default {
 
 .textarea {
   display: block;
-  width: 90%;
+  width: 100%;
   height: 50px;
+  line-height: 10px;
   border: none;
   padding: 3px;
   font-size: 18px;
@@ -146,6 +147,10 @@ form> button {
   display: block;
   margin-top: 10px;
 }
+
+/* input[type=text] {
+  heige
+} */
 
 .empty {
   opacity: 0.5;

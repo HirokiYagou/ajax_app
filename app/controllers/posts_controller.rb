@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all.order(id: "DESC")
-    binding.pry
     respond_to do |format|
       format.html
       format.json
