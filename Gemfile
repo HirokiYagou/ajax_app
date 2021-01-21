@@ -57,3 +57,6 @@ gem 'pry-rails'
 
 gem 'line-bot-api'
 gem 'nokogiri'
+
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'

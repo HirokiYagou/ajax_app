@@ -7,6 +7,7 @@
       <div class="modal-body">
         <form @submit.prevent="submit" class="modal-form-container">
           <input type="textarea" placeholder="いまどうしてる？" v-model="message" class="textarea" required>
+          <input type="file" name="post[image]" @change="selectImage" id="post-image" class="button">
           <button type="submit" :class="[empty, 'button']">投稿する</button>
         </form>
         <p>
@@ -23,12 +24,14 @@
 <script>
 import axios from 'axios'
 import Posts from './posts.vue'
+import { csrfToken } from "@rails/ujs"
 
 export default {
   components: { 'posts':Posts },
   data() {
     return {
       message: '',
+      uploadImage: null,
       isVisible: false,
       post: {},
     }
@@ -42,14 +45,30 @@ export default {
     }
   },
   methods: {
+    selectImage: function(e) {
+      const files = e.target.files
+      this.uploadImage = files[0]
+    },
     submit: function() {
-      axios
-        .post('/posts', {
-          content: this.message
+      const formData = new FormData()
+      formData.append('post[content]', this.message)
+      formData.append('post[image]', this.uploadImage)
+      fetch('/posts', {
+          method: 'POST',
+          headers: {
+            'X-CSRF-Token': csrfToken(),
+          },
+          body: formData,
         })
         .then(response => {
-          this.post = response.data
+          // console.log(response.json())
+          return response.json()
+        })
+        .then(data => {
+          // console.log(data)
+          this.post = data
           this.message = ''
+          this.uploadImage = null
           this.closeForm()
         })
         .catch(error => console.log(error))

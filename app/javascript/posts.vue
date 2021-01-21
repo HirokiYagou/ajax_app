@@ -6,6 +6,7 @@
   <div class="post-content">
     {{ post.content }}
   </div>
+  <img :src="post.image" alt="undefined">
 </div>
 </template>
 
@@ -16,15 +17,6 @@ export default {
   props: {
     new_post: {
       type: Object,
-      default: function() {
-        return {
-          id: undefined,
-          content: '',
-          checked: undefined,
-          created_at: '',
-          updated_at: '',
-        }
-      },
       required: false,
     },
   },
@@ -76,5 +68,9 @@ export default {
 
 div[data-check="true"] {
   background-color: #585555;
+}
+
+.post img {
+  width: 50%;
 }
 </style>
